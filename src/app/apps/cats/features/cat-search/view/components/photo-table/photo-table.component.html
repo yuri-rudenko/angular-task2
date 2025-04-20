@@ -1,1 +1,3 @@
-<p>photo-table works!</p>
+@for (cat of cats(); track $index) {
+  <img [src]="cat.src" alt="cat" />
+}

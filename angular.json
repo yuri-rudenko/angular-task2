@@ -15,6 +15,7 @@
           "options": {
             "outputPath": "dist/task2",
             "index": "src/index.html",
+            "sourceMap": true,
             "browser": "src/main.ts",
             "polyfills": [
               "zone.js"
