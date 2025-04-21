@@ -1,3 +1,9 @@
-@for (cat of cats(); track $index) {
-  <img [src]="cat.url" alt="cat" />
-}
+<div class="image-grid">
+  @if (cats | async) {
+    @for (cat of cats | async; track $index) {
+      <div class="col-lg">
+        <img [src]="cat.url" alt="cat" />
+      </div>
+    }
+  }
+</div>
