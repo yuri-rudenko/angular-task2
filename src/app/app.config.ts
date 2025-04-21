@@ -4,8 +4,7 @@ import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import { provideStore } from '@ngrx/store';
 import { provideEffects } from '@ngrx/effects';
-import {HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
-import {ApiKeyInterceptor} from './apps/cats/core/interceptors/api-key.interceptor';
+import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
 import {CatEffects} from './apps/cats/features/cat-search/data-access/state/cat.effects';
 import {catReducer} from './apps/cats/features/cat-search/data-access/state/cat.reducer';
 
@@ -18,10 +17,5 @@ export const appConfig: ApplicationConfig = {
     }),
     provideEffects([CatEffects]),
     provideHttpClient(withInterceptorsFromDi()),
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: ApiKeyInterceptor,
-      multi: true
-    }
   ]
 };

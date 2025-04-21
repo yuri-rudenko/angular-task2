@@ -13,8 +13,8 @@ export class CatEffects {
   loadCats$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(getCats),
-      exhaustMap(() =>
-        this.catService.getAll().pipe(
+      exhaustMap(action =>
+        this.catService.getAll(action?.breed, action.limit).pipe(
           map(cats => getCatsSuccess({ payload: cats })),
           catchError(() => of(getCatsFailure())
           )

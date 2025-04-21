@@ -9,9 +9,8 @@ export class CatService {
 
   private http = inject(HttpClient);
 
-  getAll(): Observable<any> {
-    console.log('getall')
-    return this.http.get('https://api.thecatapi.com/v1/images/search');
+  getAll(breed: string | undefined, limit: number = 10): Observable<any> {
+    return this.http.get(`https://api.thecatapi.com/v1/images/search?${breed ? `breed_ids=${breed}` : ''}&limit=${limit}`);
   }
 
 }
