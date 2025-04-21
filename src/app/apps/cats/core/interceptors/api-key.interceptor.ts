@@ -3,9 +3,7 @@ import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/c
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ApiKeyInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
@@ -17,7 +15,6 @@ export class ApiKeyInterceptor implements HttpInterceptor {
           ? `${req.url}&api_key=${environment.catApiKey}`
           : `${req.url}?api_key=${environment.catApiKey}`
       });
-      console.log(newReq);
       return next.handle(newReq);
     }
 
