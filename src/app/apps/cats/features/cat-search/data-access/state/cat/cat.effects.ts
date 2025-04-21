@@ -2,7 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import {of, tap} from 'rxjs';
 import { map, exhaustMap, catchError } from 'rxjs/operators';
-import { CatService } from '../services/cat.service';
+import { CatService } from '../../services/cat.service';
 import { getCats, getCatsSuccess, getCatsFailure } from './cat.actions';
 
 @Injectable()

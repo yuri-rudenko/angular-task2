@@ -17,6 +17,7 @@ export class ApiKeyInterceptor implements HttpInterceptor {
           ? `${req.url}&api_key=${environment.catApiKey}`
           : `${req.url}?api_key=${environment.catApiKey}`
       });
+      console.log(newReq);
       return next.handle(newReq);
     }
 
