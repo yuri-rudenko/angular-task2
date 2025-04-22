@@ -8,6 +8,7 @@
 
 img {
   height: 50px;
+  cursor: pointer;
 }
 
 p {
@@ -30,7 +31,6 @@ p {
   width: 100%;
   margin: 0px 20px;
 }
-
 
 mat-icon {
   color: #ffa31a;

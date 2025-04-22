@@ -43,6 +43,11 @@ export class SearchBarComponent {
     }));
   }
 
+  resetBreeds() {
+    this.filterForm.get('breed')?.setValue(['']);
+    this.store.dispatch(getCats({}));
+  }
+
   onBreedChange(event: MatSelectChange, breedSelect: MatSelect) {
     const breedControl = this.filterForm.get('breed');
 

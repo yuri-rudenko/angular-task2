@@ -1,7 +1,7 @@
 <form [formGroup]="filterForm" (ngSubmit)="onSubmit()">
   <div class="search-bar">
     <div class="left">
-      <img src="./assets/images/logo.png" alt="logo"/>
+      <img (click)="resetBreeds()" src="./assets/images/logo.png" alt="logo"/>
       <p>Search for the best cats!</p>
     </div>
       <mat-form-field class="search-field">
