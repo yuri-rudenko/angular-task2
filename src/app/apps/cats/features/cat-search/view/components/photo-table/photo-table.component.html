@@ -1,9 +1,14 @@
 <div class="image-grid">
-  @if (cats | async) {
-    @for (cat of cats | async; track $index) {
-      <div class="col-lg">
-        <img [src]="cat.url" alt="cat" />
-      </div>
+  @if(loading | async) {
+    <div class="loader"></div>
+  }
+  @else {
+    @if (cats | async) {
+      @for (cat of cats | async; track $index) {
+        <div class="col-lg">
+          <app-cat-image [src]="cat.url"></app-cat-image>
+        </div>
+      }
     }
   }
 </div>

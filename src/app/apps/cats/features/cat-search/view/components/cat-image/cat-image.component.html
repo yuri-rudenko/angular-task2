@@ -1,0 +1,14 @@
+<div class="image-wrapper">
+  @if (!imageLoaded) {
+    <div class="placeholder">
+      <mat-spinner diameter="80"></mat-spinner>
+    </div>
+  }
+
+  <img
+    [src]="src"
+    (load)="onLoad()"
+    [class.hidden]="!imageLoaded"
+    alt="cat"
+  />
+</div>

@@ -6,8 +6,8 @@
     </div>
       <mat-form-field class="search-field">
         <mat-label>Select your breed</mat-label>
-        <mat-select formControlName="breed">
-          <mat-option>None</mat-option>
+        <mat-select #breedSelect formControlName="breed" multiple (selectionChange)="onBreedChange($event, breedSelect)">
+          <mat-option value="none">None</mat-option>
           @for (breed of breeds | async; track $index) {
             <mat-option [value]="breed.id">{{breed.name}}</mat-option>
           }

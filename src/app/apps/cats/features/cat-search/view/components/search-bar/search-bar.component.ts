@@ -1,11 +1,10 @@
-import {Component, inject, OnInit} from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {Store} from '@ngrx/store';
-import {getBreeds} from '../../../data-access/state/breeds/breeds.actions';
 import {AsyncPipe} from '@angular/common';
 import {MatInputModule} from '@angular/material/input';
-import {MatSelectModule} from '@angular/material/select';
+import {MatSelect, MatSelectChange, MatSelectModule} from '@angular/material/select';
 import {MatIconModule} from '@angular/material/icon';
-import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, ReactiveFormsModule} from '@angular/forms';
 import {getCats} from '../../../data-access/state/cat/cat.actions';
 
 @Component({
@@ -20,7 +19,7 @@ import {getCats} from '../../../data-access/state/cat/cat.actions';
   templateUrl: './search-bar.component.html',
   styleUrl: './search-bar.component.css'
 })
-export class SearchBarComponent implements OnInit {
+export class SearchBarComponent {
 
   filterForm: FormGroup;
 
@@ -35,10 +34,6 @@ export class SearchBarComponent implements OnInit {
   private store = inject(Store<{cats: any[]}>);
   breeds = this.store.select('breeds');
 
-  ngOnInit(): void {
-    this.store.dispatch(getBreeds());
-  }
-
   onSubmit() {
     const value = this.filterForm.value;
     console.log(value);
@@ -46,6 +41,16 @@ export class SearchBarComponent implements OnInit {
       breed: value.breed,
       limit: value.limit
     }));
+  }
+
+  onBreedChange(event: MatSelectChange, breedSelect: MatSelect) {
+    const breedControl = this.filterForm.get('breed');
+
+    if (event.value.includes('none')) {
+      breedControl?.setValue(['']);
+      breedSelect.close();
+    }
+
   }
 
 }
