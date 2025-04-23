@@ -1,13 +1,12 @@
-import {Component, effect, inject, OnDestroy, OnInit, signal} from '@angular/core';
+import {Component, inject, OnDestroy, OnInit, signal} from '@angular/core';
 import {Store} from '@ngrx/store';
-import {changePage, getCats} from '../../../data-access/state/cat/cat.actions';
-import {toSignal} from '@angular/core/rxjs-interop';
-import {AsyncPipe, CommonModule} from '@angular/common';
-import {CatImageComponent} from '../cat-image/cat-image.component';
+import {AsyncPipe} from '@angular/common';
 import {FormBuilder, FormGroup, ReactiveFormsModule} from '@angular/forms';
 import {MatFormField} from '@angular/material/form-field';
 import {MatSelect, MatSelectChange, MatLabel, MatOption,} from '@angular/material/select';
 import {Subscription} from 'rxjs';
+import {CatImageComponent} from '../cat-image/cat-image.component';
+import {changePage, getCats} from '../../../data-access/state/cat/cat.actions';
 
 @Component({
   selector: 'app-photo-table',
@@ -18,15 +17,16 @@ import {Subscription} from 'rxjs';
 })
 export class PhotoTableComponent implements OnInit, OnDestroy {
 
+  private store = inject(Store<{cats: any[]}>);
+
+  catArray = signal<any[]>([]);
+  cats = this.store.select(state => state.cats.cats);
+  loading = this.store.select(state => state.cats.loading);
+
   pageForm: FormGroup;
   catsSub!: Subscription;
   pages: number[] = [0];
-  catArray = signal<any[]>([]);
   private allCats: any[] = [];
-
-  private store = inject(Store<{cats: any[]}>);
-  cats = this.store.select(state => state.cats.cats);
-  loading = this.store.select(state => state.cats.loading);
 
   constructor(private fb: FormBuilder) {
 

@@ -1,12 +1,7 @@
 import {Component, inject} from '@angular/core';
 import {
   MAT_DIALOG_DATA,
-  MatDialog,
-  MatDialogActions,
-  MatDialogClose,
-  MatDialogContent,
   MatDialogRef,
-  MatDialogTitle,
 } from '@angular/material/dialog';
 
 @Component({
@@ -16,8 +11,10 @@ import {
   styleUrl: './image-dialog.component.css'
 })
 export class ImageDialogComponent {
+
   readonly dialogRef = inject(MatDialogRef<ImageDialogComponent>);
   readonly data = inject<{src: string}>(MAT_DIALOG_DATA);
+
   readonly src = this.data.src;
 
 }

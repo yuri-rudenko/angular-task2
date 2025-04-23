@@ -5,7 +5,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSelect, MatSelectChange, MatSelectModule} from '@angular/material/select';
 import {MatIconModule} from '@angular/material/icon';
 import {FormBuilder, FormGroup, ReactiveFormsModule} from '@angular/forms';
-import {changePage, getCats} from '../../../data-access/state/cat/cat.actions';
+import {getCats} from '../../../data-access/state/cat/cat.actions';
 
 @Component({
   selector: 'app-search-bar',
@@ -21,6 +21,12 @@ import {changePage, getCats} from '../../../data-access/state/cat/cat.actions';
 })
 export class SearchBarComponent {
 
+  private store = inject(Store<{cats: any[]}>);
+
+
+  breeds = this.store.select('breeds');
+  page = this.store.select(state => state.cats.page);
+
   filterForm: FormGroup;
 
   constructor(private fb: FormBuilder) {
@@ -32,22 +38,12 @@ export class SearchBarComponent {
 
   }
 
-  private store = inject(Store<{cats: any[]}>);
-
-  breeds = this.store.select('breeds');
-  page = this.store.select(state => state.cats.page);
-
   onSubmit() {
     const value = this.filterForm.value;
     this.store.dispatch(getCats({
       breed: value.breed,
       limit: value.limit
     }));
-  }
-
-  resetBreeds() {
-    this.filterForm.get('breed')?.setValue(['']);
-    this.store.dispatch(getCats({}));
   }
 
   onBreedChange(event: MatSelectChange, breedSelect: MatSelect) {
@@ -57,6 +53,11 @@ export class SearchBarComponent {
       breedControl?.setValue(['']);
       breedSelect.close();
     }
+  }
+
+  resetBreeds() {
+    this.filterForm.get('breed')?.setValue(['']);
+    this.store.dispatch(getCats({}));
   }
 
 }

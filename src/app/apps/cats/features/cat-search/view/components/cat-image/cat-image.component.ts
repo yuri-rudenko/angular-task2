@@ -1,13 +1,7 @@
 import {Component, inject, Input, OnChanges, SimpleChanges} from '@angular/core';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {
-  MAT_DIALOG_DATA,
   MatDialog,
-  MatDialogActions,
-  MatDialogClose,
-  MatDialogContent,
-  MatDialogRef,
-  MatDialogTitle,
 } from '@angular/material/dialog';
 import {ImageDialogComponent} from '../image-dialog/image-dialog.component';
 
@@ -20,15 +14,22 @@ import {ImageDialogComponent} from '../image-dialog/image-dialog.component';
   styleUrls: ['./cat-image.component.css']
 })
 export class CatImageComponent implements OnChanges {
-  @Input() src!: string;
-  imageLoaded = false;
 
   readonly dialog = inject(MatDialog);
+
+  @Input() src!: string;
+
+  imageLoaded = false;
+
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['src']) {
       this.imageLoaded = false;
     }
+  }
+
+  onLoad(): void {
+    this.imageLoaded = true;
   }
 
   openDialog(): void {
@@ -37,7 +38,4 @@ export class CatImageComponent implements OnChanges {
     });
   }
 
-  onLoad(): void {
-    this.imageLoaded = true;
-  }
 }
