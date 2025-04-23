@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/apps/cats/features/cat-search/view/components/search-bar/search-bar.component.css"],
+  "sourcesContent": ["\n\n.search-bar {\n  display: flex;\n  justify-content: start;\n  align-items: center;\n  padding: 20px;\n  padding-bottom: 10px;\n}\n\nimg {\n  height: 50px;\n  cursor: pointer;\n}\n\np {\n  font-size: 20px;\n  color: #ffa31a;\n  min-width: 132px;\n  font-weight: bold;\n  margin: 0 0 8px 10px;\n}\n\n.left {\n  display: flex;\n  justify-content: start;\n  align-items: start;\n  position: relative;\n  bottom: 10px;\n}\n\n.search-bar .search-field {\n  width: 100%;\n  margin: 0px 20px;\n}\n\nmat-icon {\n  color: #ffa31a;\n  width: fit-content;\n  height: fit-content;\n  font-size: 40px;\n  margin-left: 10px;\n  position: relative;\n  bottom: 10px;\n  cursor: pointer;\n  max-width: 40px;\n}\n\n\n"],
+  "mappings": "AAEA,CAAC,WACC,QAAS,KACT,gBAAiB,MACjB,YAAa,OALf,QAMW,UACO,IAClB,CAEA,IACE,OAAQ,KACR,OAAQ,OACV,CAEA,EACE,UAAW,KACX,MAAO,QACP,UAAW,MACX,YAAa,IAnBf,OAoBU,EAAE,EAAE,IAAI,IAClB,CAEA,CAAC,KACC,QAAS,KACT,gBAAiB,MACjB,YAAa,MACb,SAAU,SACV,OAAQ,IACV,CAEA,CA7BC,WA6BW,CAAC,aACX,MAAO,KAhCT,OAiCU,EAAI,IACd,CAEA,SACE,MAAO,QACP,MAAO,YACP,OAAQ,YACR,UAAW,KACX,YAAa,KACb,SAAU,SACV,OAAQ,KACR,OAAQ,QACR,UAAW,IACb",
+  "names": []
+}
