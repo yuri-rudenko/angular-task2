@@ -1,3 +1,5 @@
+
+
 .search-bar {
   display: flex;
   justify-content: start;
@@ -43,3 +45,5 @@ mat-icon {
   cursor: pointer;
   max-width: 40px;
 }
+
+

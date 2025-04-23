@@ -9,3 +9,4 @@ export const getCatsSuccess = createAction(
   props<{ payload: any[] }>()
 );
 export const getCatsFailure = createAction('[Cats] Cats Loaded Error');
+export const changePage = createAction('[Cats] Cats Change Page', props<{ page: number }>());

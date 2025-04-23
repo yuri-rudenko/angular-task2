@@ -1,4 +1,4 @@
-import {Component, inject, Input} from '@angular/core';
+import {Component, inject, Input, OnChanges, SimpleChanges} from '@angular/core';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {
   MAT_DIALOG_DATA,
@@ -19,19 +19,25 @@ import {ImageDialogComponent} from '../image-dialog/image-dialog.component';
   ],
   styleUrls: ['./cat-image.component.css']
 })
-export class CatImageComponent {
+export class CatImageComponent implements OnChanges {
   @Input() src!: string;
   imageLoaded = false;
 
   readonly dialog = inject(MatDialog);
 
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['src']) {
+      this.imageLoaded = false;
+    }
+  }
+
   openDialog(): void {
-    const dialogRef = this.dialog.open(ImageDialogComponent, {
-      data: {src: this.src},
+    this.dialog.open(ImageDialogComponent, {
+      data: { src: this.src },
     });
   }
 
-  onLoad() {
+  onLoad(): void {
     this.imageLoaded = true;
   }
 }

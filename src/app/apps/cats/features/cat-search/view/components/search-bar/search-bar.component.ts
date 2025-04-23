@@ -5,7 +5,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSelect, MatSelectChange, MatSelectModule} from '@angular/material/select';
 import {MatIconModule} from '@angular/material/icon';
 import {FormBuilder, FormGroup, ReactiveFormsModule} from '@angular/forms';
-import {getCats} from '../../../data-access/state/cat/cat.actions';
+import {changePage, getCats} from '../../../data-access/state/cat/cat.actions';
 
 @Component({
   selector: 'app-search-bar',
@@ -29,14 +29,16 @@ export class SearchBarComponent {
       breed: [''],
       limit: [10],
     });
+
   }
 
   private store = inject(Store<{cats: any[]}>);
+
   breeds = this.store.select('breeds');
+  page = this.store.select(state => state.cats.page);
 
   onSubmit() {
     const value = this.filterForm.value;
-    console.log(value);
     this.store.dispatch(getCats({
       breed: value.breed,
       limit: value.limit
@@ -55,7 +57,6 @@ export class SearchBarComponent {
       breedControl?.setValue(['']);
       breedSelect.close();
     }
-
   }
 
 }
