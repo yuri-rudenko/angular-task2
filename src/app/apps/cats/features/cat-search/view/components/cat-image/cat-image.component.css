@@ -1,0 +1,30 @@
+.image-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+img {
+  display: block;
+  transition: opacity 0.3s ease;
+  width: 100%;
+  min-height: 310px;
+  object-fit: cover;
+  object-position: center;
+  cursor: pointer;
+}
+
+img.hidden {
+  opacity: 0;
+}
+
+.placeholder {
+  position: absolute;
+  z-index: 10000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

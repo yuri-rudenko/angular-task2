@@ -1,0 +1,30 @@
+<div class="photo-table-container">
+  <form class="page-selector" [formGroup]="pageForm">
+    <mat-form-field>
+      <mat-label>Page</mat-label>
+      <mat-select formControlName="page" (selectionChange)="onPageChange($event)">
+        @for(page of pages; track $index) {
+          <mat-option [value]="page">{{page+1}}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+  </form>
+
+  <div class="image-grid">
+    @if(loading | async) {
+      <div class="loader"></div>
+    }
+    @else {
+      @if (catArray()) {
+        @for (cat of catArray(); track $index) {
+          <div class="col-lg">
+            <app-cat-image [src]="cat.url"></app-cat-image>
+          </div>
+        }
+      }
+    }
+  </div>
+
+</div>
+
+
