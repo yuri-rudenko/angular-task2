@@ -1,11 +1,12 @@
-import {Component, inject} from '@angular/core';
-import {Store} from '@ngrx/store';
-import {AsyncPipe} from '@angular/common';
-import {MatInputModule} from '@angular/material/input';
-import {MatSelect, MatSelectChange, MatSelectModule} from '@angular/material/select';
-import {MatIconModule} from '@angular/material/icon';
-import {FormBuilder, FormGroup, ReactiveFormsModule} from '@angular/forms';
-import {getCats} from '../../../data-access/state/cat/cat.actions';
+import { Component, inject } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { AsyncPipe } from '@angular/common';
+import { MatInputModule} from '@angular/material/input';
+import { MatSelect, MatSelectChange, MatSelectModule } from '@angular/material/select';
+import { MatIconModule } from '@angular/material/icon';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+
+import { getCats } from '../../../data-access/state/cat/cat.actions';
 
 @Component({
   selector: 'app-search-bar',

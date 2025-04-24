@@ -1,8 +1,7 @@
-import {Component, inject, Input, OnChanges, SimpleChanges} from '@angular/core';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import {
-  MatDialog,
-} from '@angular/material/dialog';
+import { Component, inject, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatDialog } from '@angular/material/dialog';
+
 import {ImageDialogComponent} from '../image-dialog/image-dialog.component';
 
 @Component({

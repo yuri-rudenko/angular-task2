@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import {SearchBarComponent} from '../../components/search-bar/search-bar.component';
-import {PhotoTableComponent} from '../../components/photo-table/photo-table.component';
+
+import { SearchBarComponent } from '../../components/search-bar/search-bar.component';
+import { PhotoTableComponent } from '../../components/photo-table/photo-table.component';
 
 @Component({
   selector: 'app-cat-search',

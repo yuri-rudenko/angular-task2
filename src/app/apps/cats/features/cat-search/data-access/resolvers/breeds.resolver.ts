@@ -4,7 +4,8 @@ import { Store } from '@ngrx/store';
 import { Actions, ofType } from '@ngrx/effects';
 import { Observable } from 'rxjs';
 import { take, map } from 'rxjs/operators';
-import {getBreeds, getBreedsSuccess} from '../state/breeds/breeds.actions';
+
+import { getBreeds, getBreedsSuccess } from '../state/breeds/breeds.actions';
 
 @Injectable({ providedIn: 'root' })
 export class BreedsResolver implements Resolve<boolean> {

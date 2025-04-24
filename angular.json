@@ -13,7 +13,8 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/task2",
+            "baseHref": "/angular-task2/",
+            "outputPath": "dist/angular-task2",
             "index": "src/index.html",
             "sourceMap": true,
             "browser": "src/main.ts",

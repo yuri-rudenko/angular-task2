@@ -1,12 +1,9 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import {
-  CatSearchPage
-} from './apps/cats/features/cat-search/view/pages/cat-search.page/cat-search.page';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, CatSearchPage],
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
 })
 export class AppComponent {

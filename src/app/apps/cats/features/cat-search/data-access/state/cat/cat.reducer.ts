@@ -1,5 +1,6 @@
-import {createReducer, on} from '@ngrx/store';
-import {changePage, getCats, getCatsFailure, getCatsSuccess} from './cat.actions';
+import { createReducer, on } from '@ngrx/store';
+
+import { changePage, getCats, getCatsFailure, getCatsSuccess } from './cat.actions';
 
 export interface catsState {
   cats: any[];

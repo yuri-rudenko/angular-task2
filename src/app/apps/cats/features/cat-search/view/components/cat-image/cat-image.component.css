@@ -1,15 +1,14 @@
 .image-wrapper {
   position: relative;
   width: 100%;
-  height: auto;
 }
 
 img {
   display: block;
   transition: opacity 0.3s ease;
   width: 100%;
-  height: 100%;
-  object-fit: contain;
+  min-height: 310px;
+  object-fit: cover;
   object-position: center;
   cursor: pointer;
 }
